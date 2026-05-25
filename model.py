@@ -57,4 +57,6 @@ def ask_question():
     return jsonify({'question': user_question, 'answer': answer})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5555)
+    import os
+    port = int(os.environ.get('PORT', 5555))
+    app.run(host='0.0.0.0', port=port, debug=False)
